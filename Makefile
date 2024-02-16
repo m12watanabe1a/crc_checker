@@ -1,8 +1,3 @@
-crc_checker:
+crc8_checker:
 	g++ $@.cpp -o $@
 
-run: build
-	./a.out
-
-clean:
-	a.out
