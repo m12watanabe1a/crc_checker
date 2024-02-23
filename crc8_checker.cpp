@@ -40,8 +40,10 @@ uint8_t crc8_ccitt(uint8_t val, const void *buf, size_t len)
 int main(int argc, char **argv)
 {
   const std::string data = std::string(argv[1]);
-  std::cout << "data: " << data << std::endl;
-  printf("CRC: %02hhX\n", crc8_ccitt(0, data.c_str(), data.length()));
-  printf("CRC ccitt: %02hhX\n", crc8_ccitt_table(0, data.c_str(), data.length()));
+#ifndef USE_TABLE
+  printf("%s -> %02hhX\n", data.c_str(), crc8_ccitt(0, data.c_str(), data.length()));
+#else
+  printf("%s => %02hhX\n", data.c_str(), crc8_ccitt_table(0, data.c_str(), data.length()));
+#endif
   return EXIT_SUCCESS;
 }

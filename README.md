@@ -5,8 +5,15 @@
 make
 ```
 
+##### Build CRC8 Table Ver.
+```cpp
+make USE_TABLE=1
+```
+
 
 ### Excute
 ```cpp
-crc8_checker <ascii>
+./build/crc8_checker '$AA'
+$AA ->  66
 ```
+
