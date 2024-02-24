@@ -8,7 +8,7 @@ static const uint8_t crc8_ccitt_small_table[16] = {
 	0x38, 0x3f, 0x36, 0x31, 0x24, 0x23, 0x2a, 0x2d
 };
 
-uint8_t crc8_ccitt_table(uint8_t val, const void *buf, size_t len)
+uint8_t crc8_ccitt(uint8_t val, const void *buf, size_t len)
 {
 	size_t i;
 	const uint8_t *p = (uint8_t *)buf;
@@ -45,7 +45,7 @@ int main(int argc, char **argv)
 #ifndef USE_TABLE
   printf("%s -> %02hhX\n", data.c_str(), crc8_ccitt(0, data.c_str(), data.length()));
 #else
-  printf("%s => %02hhX\n", data.c_str(), crc8_ccitt_table(0, data.c_str(), data.length()));
+  printf("%s => %02hhX\n", data.c_str(), crc8_ccitt(0, data.c_str(), data.length()));
 #endif
   return EXIT_SUCCESS;
 }
